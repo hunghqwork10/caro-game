@@ -15,7 +15,7 @@ Game::Game(QWidget* parent) : QGraphicsView(parent)
     drawBoard();
 
     // hien thi QGraphicsScene
-    show();
+//    show();
 }
 
 void Game::drawBoard()
