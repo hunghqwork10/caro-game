@@ -1,6 +1,7 @@
 #ifndef MAINMENU_H
 #define MAINMENU_H
 
+#include <QObject>
 #include <QWidget>
 #include <QPushButton>
 
@@ -14,6 +15,7 @@ public:
 private slots:
     void handlePlayButton();
     void handleExitButton();
+    void showMainMenu();
 };
 
 #endif // MAINMENU_H

@@ -1,6 +1,7 @@
 #include "mainmenu.h"
 #include "game.h"
 #include <QVBoxLayout>
+#include <QMainWindow>
 
 MainMenu::MainMenu(QWidget* parent) : QWidget(parent)
 {
@@ -20,12 +21,20 @@ MainMenu::MainMenu(QWidget* parent) : QWidget(parent)
 void MainMenu::handlePlayButton()
 {
     Game* game = new Game();
+    game->setAttribute(Qt::WA_DeleteOnClose);
+    connect(game, SIGNAL(destroyed(QObject*)), this, SLOT(showMainMenu()));
     game->show();
 
-    close();
+    hide();
 }
 
 void MainMenu::handleExitButton()
 {
     close();
+}
+
+void MainMenu::showMainMenu()
+{
+    qDebug() << "Is MainMenu visible? " << isVisible();
+    show();
 }
